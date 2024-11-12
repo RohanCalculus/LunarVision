@@ -29,10 +29,9 @@ st.markdown(
 # Title
 st.markdown('<h1 style="color: lightgray;">🌙 Lunar Terrain Segmentation App</h1>', unsafe_allow_html=True)
 
-
 # FastAPI backend endpoints
-PREPROCESS_URL = "http://localhost:8000/preprocess/"
-SEGMENT_URL = "http://localhost:8000/segment/"
+PREPROCESS_URL = "https://project-3-ik42.onrender.com/preprocess/"
+SEGMENT_URL = "https://project-3-ik42.onrender.com/segment/"
 
 # Initialize session state for storing images
 if 'preprocessed_image' not in st.session_state:

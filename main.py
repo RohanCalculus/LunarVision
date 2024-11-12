@@ -1,6 +1,7 @@
 # Imports
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.middleware.cors import CORSMiddleware 
 import tensorflow as tf
 from PIL import Image
 import numpy as np
@@ -10,6 +11,14 @@ from utils import preprocess_image, get_color_map
 
 # FastAPI instance
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://segmend-moon-terrain.streamlit.app/"],  # Allows specific origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Load the pre-trained model for segmentation
 model_path = 'model/LunarModel.h5'
