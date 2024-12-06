@@ -10,6 +10,13 @@ st.set_page_config(
     layout="wide"
 )
 
+# Footer text
+footer = """
+<div style='position: fixed; left: 0; bottom: 0; width: 100%; background-color: white; text-align: center; padding: 10px;'>
+    <p style='color: black; margin: 0;'>Made with ❤️ by <b>Rohan</b></p>
+</div>
+"""
+
 # Background CSS for adding a background image
 background_image_url = "https://www.sott.net/image/s27/554081/full/ARnG8wPtoSYVQJVtS9q7WR_2069_80.jpg"
 
@@ -46,6 +53,7 @@ uploaded_file = st.file_uploader("Upload an image of the moon's surface which mu
 
 # Clear session state when a new file is uploaded
 if uploaded_file is not None:
+    st.markdown(footer, unsafe_allow_html=True)
     if st.session_state['uploaded_file'] != uploaded_file:
         # New file uploaded, clear previous state
         st.session_state['uploaded_file'] = uploaded_file
@@ -70,6 +78,7 @@ if uploaded_file is not None:
 
 # Only display the preprocessed image and the segmentation button if the image is processed
 if st.session_state['preprocessed_image'] is not None:
+    
     col1, col2 = st.columns(2)
 
     with col1:
@@ -82,6 +91,7 @@ if st.session_state['preprocessed_image'] is not None:
     # Display the segmentation results in the second column only when the button is clicked
     with col2:
         if segment_button:
+            st.markdown(footer, unsafe_allow_html=True)
             # Show the spinner only while the segmentation process is going on
             with st.spinner("Segmenting..."):
                 try:
@@ -106,12 +116,7 @@ if st.session_state['preprocessed_image'] is not None:
         if st.session_state['segmented_image'] is not None:
             st.image(st.session_state['segmented_image'], caption="Segmented Image", use_container_width=True)
 
-# Add the footer at the end of the script
-footer = """
-<div style='position: fixed; left: 0; bottom: 0; width: 100%; background-color: white; text-align: center; padding: 10px;'>
-    <p style='color: black; margin: 0;'>This project is developed by <b>Spartificial</b> as part of the <b>Machine Learning for Astronomy</b> Training Program</p>
-</div>
-"""
+
 
 # Inject the footer using markdown
 st.markdown(footer, unsafe_allow_html=True)
