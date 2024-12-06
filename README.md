@@ -2,7 +2,9 @@
 Give input image of Moon Terrain which is at least 480x480 pixels and get the segmented mask as output.
 * Note that, the segmentation mask will only include those rocks which might be dangerous for rover!
 
-<img src="media/moon - Made with Clipchamp.gif" alt="Web App GIF" width=90%>
+https://github.com/user-attachments/assets/cc6f4df0-311f-4ef2-871e-73d3bd6475e7
+
+https://github.com/user-attachments/assets/8ec37b59-1861-4ae1-bb0e-e462955fa39f
 
 ## ⚙️ How to Set Up This Project in Your System
 1. Clone this repository using the web URL given below or download the ZIP file.
